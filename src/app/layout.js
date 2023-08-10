@@ -1,3 +1,5 @@
+import { Comment } from "@/components/Comment";
+import { PostOwner } from "@/components/PostOwner";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +20,22 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div
+          style={{ minHeight: "100vh", backgroundColor: "#18191A" }}
+          className="p-3"
+        >
+          <div
+            style={{ maxWidth: "700px", backgroundColor: "#242526" }}
+            className="mx-auto p-3 rounded rounded-3 shadow-sm"
+          >
+            {" "}
+            <PostOwner fullName="Kaewtar Lungta" studentId="650610750" />
+            <Comment />
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
